@@ -1,0 +1,11 @@
+{
+  "name": "django-multiapp-seller",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {},
+  "author": "Anton Galitsyn",
+  "license": "BSD",
+  "dependencies": {
+    "bootstrap": "5.3.2"
+  }
+}

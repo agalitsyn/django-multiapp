@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "django-multiapp"
+version = "0.1.0"
+description = ""
+authors = ["Anton Galitsyn"]
+license = "BSD"
+readme = ""
+
+[tool.poetry.dependencies]
+python = "^3.11"
+Django = "^5.0b1"
+django-extensions = "^3.2.3"
+django-debug-toolbar = "^4.2.0"
+django-crispy-forms = "^2.1"
+crispy-bootstrap5 = "^2023.10"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.10.1"
+djlint = "^1.34.0"
+isort = "^5.12.0"
+flake8 = "^6.1.0"
+ipython = "^8.17.2"
+werkzeug = "^3.0.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.djlint]
+profile="django"
+preserve_blank_lines=true
+blank_line_after_tag="load,extends"
+ignore="T003"

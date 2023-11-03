@@ -1,0 +1,42 @@
+{% load static %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon"
+          href="{% static 'seller/favicon.ico' %}"
+          type="image/x-icon">
+    <link rel="shortcut icon"
+          href="{% static 'seller/favicon.ico' %}"
+          type="image/x-icon">
+    <link rel="apple-touch-icon"
+          href="{% static 'seller/apple-touch-icon.png' %}">
+
+    <title>
+      Seller
+      {% block title %}{% endblock %}
+    </title>
+
+    <link href="{% static 'seller/node_modules/bootstrap/dist/css/bootstrap.min.css' %}"
+          rel="stylesheet">
+
+    {% block css %}{% endblock %}
+  </head>
+
+  <body>
+    {% block header %}{% endblock %}
+
+    {% block content %}{% endblock %}
+
+    {% block footer %}{% endblock %}
+  </body>
+
+  <script src="{% static 'seller/node_modules/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+
+  {% block js %}{% endblock %}
+</html>

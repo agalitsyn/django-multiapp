@@ -1,0 +1,8 @@
+*.sqlite3
+.mypy_cache
+.venv
+__pycache__
+.dist
+node_modules
+.static
+.media

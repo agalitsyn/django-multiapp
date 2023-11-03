@@ -1,0 +1,44 @@
+{% load static %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon"
+          href="{% static 'public/favicon.ico' %}"
+          type="image/x-icon">
+    <link rel="shortcut icon"
+          href="{% static 'public/favicon.ico' %}"
+          type="image/x-icon">
+    <link rel="apple-touch-icon"
+          href="{% static 'public/apple-touch-icon.png' %}">
+
+    <title>Django Public App
+      {% block title %}{% endblock %}
+    </title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <link href="{% static 'public/.dist/css/app.css' %}" rel="stylesheet">
+
+    {% block css %}{% endblock %}
+  </head>
+
+  <body>
+    {% block header %}
+      {% include "public/components/header.html" %}
+    {% endblock %}
+
+    {% block content %}{% endblock %}
+
+    {% block footer %}
+      {% include "public/components/footer.html" %}
+    {% endblock %}
+  </body>
+
+  {% block js %}{% endblock %}
+</html>
