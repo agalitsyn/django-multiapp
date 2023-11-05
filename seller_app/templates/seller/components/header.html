@@ -78,6 +78,10 @@
           </li>
         </ul>
       </div>
+
+      <button hx-post="{% url 'seller:logout' %}"
+              hx-push-url="{% url 'seller:login' %}"
+              hx-target='closest body'>Logout</button>
     </div>
   </div>
 </header>

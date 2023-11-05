@@ -6,6 +6,7 @@
   "author": "Anton Galitsyn",
   "license": "BSD",
   "dependencies": {
-    "bootstrap": "5.3.2"
+    "bootstrap": "5.3.2",
+    "htmx.org": "1.9.7"
   }
 }

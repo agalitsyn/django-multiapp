@@ -8,14 +8,8 @@
 {% endblock css %}
 
 {% block content %}
-  <main class="text-center form-signin">
-    <form method="POST">
-      {% csrf_token %}
-      <h1 class="h3 mb-3 fw-normal">Seller app</h1>
-
-      {{ form | crispy }}
-
-      <button type="submit" class="w-100 btn btn-lg btn-primary">Login</button>
-    </form>
-  </main>
+  <div class="text-center form-signin">
+    <h1 class="h3 mb-3 fw-normal">Seller app</h1>
+    {% crispy form %}
+  </div>
 {% endblock content %}

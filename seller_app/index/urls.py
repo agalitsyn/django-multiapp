@@ -1,14 +1,10 @@
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import path
 
-from .forms import UserLoginForm
-from .views import index
+from .views import index, login, logout
 
 urlpatterns = [
     path("", index, name="index"),
-    path(
-        "login/",
-        LoginView.as_view(authentication_form=UserLoginForm, template_name="seller/login.html"),
-        name="login",
-    ),
+    path("login/", login, name="login"),
+    path("logout/", logout, name="logout"),
 ]
