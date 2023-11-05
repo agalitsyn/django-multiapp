@@ -1,4 +1,5 @@
 from django.contrib.auth.models import AbstractUser, BaseUserManager
+from django.contrib.auth.models import Group as AuthGroup
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
@@ -51,3 +52,8 @@ class User(AbstractUser):
         related_name="user",
         verbose_name=_("Partner profile"),
     )
+
+
+class Group(AuthGroup):
+    class Meta:
+        proxy = True

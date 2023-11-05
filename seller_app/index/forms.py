@@ -46,5 +46,10 @@ class UserLoginForm(forms.ModelForm):
         model = User
         fields = ("username", "password")
         widgets = {
+            "username": forms.EmailInput(),
             "password": forms.PasswordInput(),
+        }
+        help_texts = {
+            "username": None,
+            "password": None,
         }

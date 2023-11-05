@@ -27,11 +27,11 @@ def login(request):
             user = form.login(request)
             if user is not None:
                 auth_login(request, user)
-                template = render(request, "seller/index.html")
-                template["HX-Push-Url"] = reverse("seller:index")
-                template["HX-Reswap"] = "innerHTML"
-                template["HX-Retarget"] = "closest body"
-                return template
+                resp = render(request, "seller/index.html")
+                resp["HX-Retarget"] = "body"
+                resp["HX-Reswap"] = "innerHTML"
+                resp["HX-Push-Url"] = reverse("seller:index")
+                return resp
         ctx = {}
         ctx.update(csrf(request))
         form_html = render_crispy_form(form, context=ctx)
