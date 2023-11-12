@@ -1,9 +1,12 @@
 {% extends 'seller/_layout.html' %}
 
 {% block header %}
-  {% include "seller/partials/header.html" %}
+  {% include "seller/partials/header.html" with shops=shops slug=shop.slug %}
 {% endblock header %}
 
 {% block content %}
-  {% include "seller/partials/reports_list.html" %}
+  <div class="container-fluid">
+    <h1 class="h3 mb-3 fw-normal">Reports list</h1>
+    {% include "seller/partials/report_list.html" with reports=shop.reports.all slug=shop.slug %}
+  </div>
 {% endblock %}

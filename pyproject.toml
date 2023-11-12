@@ -31,3 +31,7 @@ profile="django"
 preserve_blank_lines=true
 blank_line_after_tag="load,extends"
 ignore="T003"
+
+[tool.ruff]
+exclude = [".venv"]
+line-length = 120

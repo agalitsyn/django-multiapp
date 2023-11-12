@@ -1,87 +1,54 @@
-<header class="py-3 mb-3 border-bottom">
-  <div class="container-fluid d-grid gap-3 align-items-center"
-       style="grid-template-columns: 1fr 2fr">
-    <div class="dropdown">
-      <a href="#"
-         class="d-flex align-items-center col-lg-4 mb-2 mb-lg-0 link-dark text-decoration-none dropdown-toggle"
-         id="dropdownNavLink"
-         data-bs-toggle="dropdown"
-         aria-expanded="false">
-        <svg class="bi me-2" width="40" height="32">
-          <use xlink:href="#bootstrap"></use>
-        </svg>
-      </a>
-      <ul class="dropdown-menu text-small shadow"
-          aria-labelledby="dropdownNavLink"
-          style="">
-        <li>
-          <a class="dropdown-item active" href="#" aria-current="page">Overview</a>
-        </li>
-        <li>
-          <a class="dropdown-item" href="#">Inventory</a>
-        </li>
-        <li>
-          <a class="dropdown-item" href="#">Customers</a>
-        </li>
-        <li>
-          <a class="dropdown-item" href="#">Products</a>
-        </li>
-        <li>
-          <hr class="dropdown-divider">
-        </li>
-        <li>
-          <a class="dropdown-item" href="#">Reports</a>
-        </li>
-        <li>
-          <a class="dropdown-item" href="#">Analytics</a>
-        </li>
-      </ul>
-    </div>
+{% load static %}
 
-    <div class="d-flex align-items-center">
-      <form class="w-100 me-3">
-        <input type="search"
-               class="form-control"
-               placeholder="Search..."
-               aria-label="Search">
-      </form>
-
-      <div class="flex-shrink-0 dropdown">
-        <a href="#"
-           class="d-block link-dark text-decoration-none dropdown-toggle"
-           id="dropdownUser2"
-           data-bs-toggle="dropdown"
-           aria-expanded="false">
-          <img src="https://github.com/mdo.png"
-               alt="mdo"
-               width="32"
-               height="32"
-               class="rounded-circle">
+<header class="py-3 mb-4 border-bottom">
+  <div class="container-fluid d-grid gap-3 align-items-center">
+    <nav class="navbar navbar-light">
+      <div class="container-fluid">
+        <a href="{% url 'seller:index' %}" class="navbar-brand">
+          <img src="{% static 'public/images/logo.png' %}"
+               alt="my company"
+               width="40"
+               class="bi me-2" />
+          <span class="fs-4">Seller App</span>
         </a>
-        <ul class="dropdown-menu text-small shadow"
-            aria-labelledby="dropdownUser2"
-            style="">
-          <li>
-            <a class="dropdown-item" href="#">New project...</a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="#">Settings</a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="#">Profile</a>
-          </li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-          <li>
-            <a class="dropdown-item" href="#">Sign out</a>
-          </li>
-        </ul>
-      </div>
 
-      <button hx-post="{% url 'seller:logout' %}"
-              hx-push-url="{% url 'seller:login' %}"
-              hx-target='body'>Logout</button>
-    </div>
+        {% if shops %}
+          <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+            {% for shop in shops %}
+              <li>
+                <a href="{% url "seller:shop" shop.slug %}"
+                   class="nav-link px-2 {% if shop.slug == slug %}link-primary{% else %}link-secondary{% endif %}">{{ shop.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+
+        <div class="d-flex align-items-center">
+          <div class="flex-shrink-0 dropstart">
+            <a href="#"
+               class="d-block link-body-emphasis text-decoration-none"
+               data-bs-toggle="dropdown"
+               aria-expanded="false">
+
+              <i class="fs-3 bi bi-person-circle"></i>
+            </a>
+            <ul class="dropdown-menu text-small shadow">
+              {% comment %} <li>
+                <a class="dropdown-item" href="#">Profile</a>
+              </li>
+              <li>
+                <hr class="dropdown-divider">
+              </li> {% endcomment %}
+              <li>
+                <a class="dropdown-item"
+                   hx-post="{% url 'seller:logout' %}"
+                   hx-push-url="{% url 'seller:login' %}"
+                   hx-target='body'>Logout</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
   </div>
 </header>

@@ -3,6 +3,7 @@ from django.contrib.auth.models import Group as AuthGroup
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+
 from retail.models import Partner, Shop
 
 
@@ -43,7 +44,7 @@ class User(AbstractUser):
 
     email = models.EmailField(_("email address"), unique=True)
     middle_name = models.CharField(max_length=150, blank=True, verbose_name=_("Middle name"))
-    shops = models.ManyToManyField(Shop, blank=True, null=True, verbose_name=_("Shops"))
+    shops = models.ManyToManyField(Shop, blank=True, verbose_name=_("Shops"))
     partner_profile = models.ForeignKey(
         Partner,
         blank=True,

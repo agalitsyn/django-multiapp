@@ -40,25 +40,9 @@
   "[python]": {
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
+      "source.fixAll": true,
       "source.organizeImports": true
     },
+    "editor.defaultFormatter": "charliermarsh.ruff"
   },
-  "isort.args":["--profile", "black"],
-  "python.formatting.provider": "black",
-  "python.formatting.blackPath": "black",
-  "python.formatting.blackArgs": [
-    "--line-length",
-    "120"
-  ],
-  "python.linting.enabled": true,
-  "python.linting.lintOnSave": true,
-  "python.linting.flake8Enabled": true,
-  "python.linting.flake8Args": ["--max-line-length", "120"],
-  "python.linting.mypyEnabled": false,
-  "python.linting.prospectorEnabled": false,
-  "python.linting.pylintEnabled": false,
-  "python.linting.pylintArgs": [
-      "--enable=W0614",
-      "--disable=C0114,C0115,C0116",
-  ]
 }

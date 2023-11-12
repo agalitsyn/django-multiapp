@@ -6,6 +6,21 @@ from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 
 from core.models import User
+from retail.models import Report
+
+
+class ReportForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper(self)
+
+    class Meta:
+        model = Report
+        fields = ("shop", "user", "started_at", "stopped_at")
+        widgets = {
+            "started_at": forms.SelectDateWidget(),
+            "stopped_at": forms.SelectDateWidget(),
+        }
 
 
 class UserLoginForm(forms.ModelForm):
@@ -48,6 +63,9 @@ class UserLoginForm(forms.ModelForm):
         widgets = {
             "username": forms.EmailInput(),
             "password": forms.PasswordInput(),
+        }
+        labels = {
+            "username": _("Email"),
         }
         help_texts = {
             "username": None,
